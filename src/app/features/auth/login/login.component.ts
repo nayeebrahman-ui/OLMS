@@ -21,11 +21,11 @@ import { ModalComponent } from '../../../shared/components/ui/modal/modal.compon
     ModalComponent
   ],
   template: `
-    <!-- Background Image Implementation -->
+    <!-- Background Image pointing directly to public/images/login-bg.png -->
     <div class="min-h-screen w-full flex items-center justify-center p-4 bg-cover bg-center bg-no-repeat relative"
-         style="background-image: url('/login-bg.png');">
+         style="background-image: url('/images/login-bg.png');">
       
-      <!-- Subtle tint overlay so the white glassmorphism pops against the pink background -->
+      <!-- Subtle tint overlay so the glassmorphic card pops -->
       <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
 
       <!-- TRUE Glassmorphic Card Container -->
@@ -36,7 +36,7 @@ import { ModalComponent } from '../../../shared/components/ui/modal/modal.compon
           <span class="text-5xl font-black text-brand-magenta tracking-tighter uppercase">BRAC</span>
         </div>
         
-        <!-- Centered Header - Fixed Font Weight -->
+        <!-- Centered Header -->
         <div class="text-center w-full mb-6 flex flex-col items-center">
           <h1 class="text-2xl font-bold text-gray-900 text-center">Sign In</h1>
           <p class="text-xs text-gray-700 mt-1 text-center font-medium">Enter your credentials to access the portal</p>
