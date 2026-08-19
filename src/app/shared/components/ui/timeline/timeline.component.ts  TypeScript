@@ -1,0 +1,35 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+interface TimelineEvent { time?: string; date?: string; title: string; description?: string; userIcon?: string; type: 'default' | 'success' | 'alert'; }
+
+@Component({
+  selector: 'app-timeline',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div class="relative border-l border-gray-200 ml-4 py-2">
+      @for (event of events; track $index) {
+        <div class="mb-8 ml-6 relative">
+          <!-- Timeline Node -->
+          <span class="absolute -left-[33px] flex items-center justify-center w-6 h-6 rounded-full bg-white border ring-4 ring-white"
+                [ngClass]="{'border-gray-300': event.type === 'default', 'border-brand-magenta': event.type === 'alert'}">
+            @if (event.userIcon) { <img [src]="event.userIcon" class="w-full h-full rounded-full" /> }
+            @else { <div class="w-2 h-2 rounded-full bg-gray-400"></div> }
+          </span>
+          
+          <!-- Content -->
+          <div class="flex items-center gap-4 text-xs text-gray-500 mb-1">
+            @if (event.date) { <span class="font-bold text-gray-800 uppercase">{{ event.date }}</span> }
+            @if (event.time) { <span>{{ event.time }}</span> }
+          </div>
+          <h3 class="font-semibold text-sm text-gray-900">{{ event.title }}</h3>
+          @if (event.description) { <p class="text-sm text-gray-500 mt-1">{{ event.description }}</p> }
+        </div>
+      }
+    </div>
+  `
+})
+export class TimelineComponent {
+  @Input() events: TimelineEvent[] = [];
+}
