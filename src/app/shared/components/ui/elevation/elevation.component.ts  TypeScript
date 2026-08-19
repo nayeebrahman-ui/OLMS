@@ -1,0 +1,41 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-shadow-box',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <div [ngClass]="[
+      'bg-white rounded-xl transition-shadow duration-300',
+      type === 'box' ? shadowClasses[level] : dropClasses[level]
+    ]">
+      <ng-content></ng-content>
+    </div>
+  `
+})
+export class ElevationComponent {
+  @Input() type: 'box' | 'drop' = 'box';
+  @Input() level: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'md';
+
+  // Box shadows (CSS standard) vs Drop Shadows (follows SVG/Image contours)
+  shadowClasses = {
+    '2xs': 'shadow-sm',
+    'xs': 'shadow',
+    'sm': 'shadow-md',
+    'md': 'shadow-lg',
+    'lg': 'shadow-xl',
+    'xl': 'shadow-2xl',
+    '2xl': 'shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]' // Custom heavy shadow
+  };
+
+  dropClasses = {
+    '2xs': 'drop-shadow-sm',
+    'xs': 'drop-shadow',
+    'sm': 'drop-shadow-md',
+    'md': 'drop-shadow-lg',
+    'lg': 'drop-shadow-xl',
+    'xl': 'drop-shadow-2xl',
+    '2xl': 'drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]'
+  };
+}
