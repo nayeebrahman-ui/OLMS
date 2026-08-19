@@ -19,7 +19,11 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "styles": ["src/styles.css"],
-            "scripts": []
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/ChatGPT Image Aug 19, 2026, 07_20_32 PM.png"
+            ]
           },
           "configurations": {
             "production": {
