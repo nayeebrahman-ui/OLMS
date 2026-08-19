@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  /* BRAC Typography */
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-bangla: "Kohinoor Bangla", SutonnyMJ, sans-serif;
+
+  /* BRAC Primary Brand Colors */
+  --color-brand-magenta: #D10074;
+  
+  /* BRAC Secondary Colors */
+  --color-brand-cyan: #3DB7E4;
+  --color-brand-coolGray: #4D4F53;
+  --color-brand-neutralBlack: #27281C;
+  --color-brand-olive: #4D5732;
+  --color-brand-orange: #FFA100;
+  --color-brand-deepGreen: #007161;
+  --color-brand-tan: #D0AA8A;
+  --color-brand-blue: #7B8FB9;
+  --color-brand-lime: #C9D600;
+  --color-brand-purple: #80379B;
+  --color-brand-red: #A41E22;
+}
+
+/* Base resets to ensure Helvetica Neue renders crisply */
+@layer base {
+  body {
+    @apply font-sans text-brand-neutralBlack bg-gray-50 antialiased;
+  }
+}
